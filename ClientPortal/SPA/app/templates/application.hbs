@@ -1,0 +1,14 @@
+<h3 id="title">Welcome to Justice Canada</h3>
+  {{#if session.isAuthenticated}}
+    <a {{action 'invalidateSession'}}>Logout</a>
+    <strong> current User is: {{ session.currentUser.Email }} </strong>
+    <strong></strong>
+  {{else}}
+     <nav>{{#link-to 'login'}}login{{/link-to}}	</nav> 
+     <nav>{{#link-to 'register'}}register{{/link-to}}	</nav> 
+    
+{{/if}}
+
+<div class="main">
+  {{outlet}}
+</div>
