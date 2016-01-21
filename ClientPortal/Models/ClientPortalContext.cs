@@ -21,5 +21,7 @@ namespace ClientPortal.Models
 
         public System.Data.Entity.DbSet<ClientPortal.Models.Form> Forms { get; set; }
         public System.Data.Entity.DbSet<ClientPortal.Models.FormField> FormFields { get; set; }
+        public System.Data.Entity.DbSet<ClientPortal.Models.Address> Addresses { get; set; }
+        public System.Data.Entity.DbSet<ClientPortal.Models.Organization> Organizations { get; set; }
     }
 }

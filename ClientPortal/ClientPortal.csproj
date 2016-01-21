@@ -303,8 +303,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrganizationsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="CRM\CrmMaster.cs" />
     <Compile Include="ErrorMessages\LocalizedErrors.cs" />
@@ -312,16 +314,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601080425516_initial.cs" />
-    <Compile Include="Migrations\201601080425516_initial.Designer.cs">
-      <DependentUpon>201601080425516_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201601210345484_Initial.cs" />
+    <Compile Include="Migrations\201601210345484_Initial.Designer.cs">
+      <DependentUpon>201601210345484_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\ClientPortalContext.cs" />
     <Compile Include="Models\CustomUser.cs" />
     <Compile Include="Models\FormModels.cs" />
+    <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\Repositories\FormRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Repositories\IFormRepository.cs" />
@@ -404,8 +408,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601080425516_initial.resx">
-      <DependentUpon>201601080425516_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601210345484_Initial.resx">
+      <DependentUpon>201601210345484_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

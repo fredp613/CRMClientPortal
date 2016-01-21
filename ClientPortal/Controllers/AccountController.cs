@@ -353,8 +353,8 @@ namespace ClientPortal.Controllers
             var contact = new Contact()
             {
                 EmailAddress1 = model.Email,
-                FirstName = "Mary Kay1",
-                LastName = "Andersen1",
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 Address1_Line1 = "23 Market St.",
                 Address1_City = "Sammamish",
                 Address1_StateOrProvince = "MT",
