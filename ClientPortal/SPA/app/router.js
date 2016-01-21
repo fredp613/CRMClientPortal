@@ -17,6 +17,9 @@ Router.map(function() {
     this.route('UserInfo');
   });
   this.route('account');
+  this.route('organizations');
+  this.route('fundingrequests');
+  this.route('addresses');
 });
 
 export default Router;

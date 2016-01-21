@@ -48,7 +48,7 @@ var user = Ember.Object.extend({
 			var session = this.get('session');
 			var store = this.get('store');
 			var token = this.get('token');
-			//this.set('currentUser', session.get('content')["authenticated"]["userName"] );
+			//get the context of the session class - so grab the target passed to this object to set the current user in the session object
 			var target = this.get('target');
 			Ember.$.ajax({
 			      type: 'GET',

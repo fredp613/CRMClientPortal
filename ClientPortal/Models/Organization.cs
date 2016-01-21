@@ -18,6 +18,7 @@ namespace ClientPortal.Models
         public Organization()
         {
             this.addresses = new HashSet<Address>();
+            this.fundingRequests = new HashSet<FundingRequest>();
         }
        
         [Key]
@@ -29,5 +30,6 @@ namespace ClientPortal.Models
         public DateTime? UpdatedOn { get; set; }
         public Guid CreatedBy { get; set; }
         public virtual ICollection<Address> addresses { get; set; }
+        public virtual ICollection<FundingRequest> fundingRequests { get; set; }
     }
 }

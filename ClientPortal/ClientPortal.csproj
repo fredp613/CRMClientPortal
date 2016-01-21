@@ -302,9 +302,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Content\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
+    <Compile Include="Controllers\FundingRequestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -318,6 +319,14 @@
     <Compile Include="Migrations\201601210345484_Initial.Designer.cs">
       <DependentUpon>201601210345484_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601210411126_FundingRequests.cs" />
+    <Compile Include="Migrations\201601210411126_FundingRequests.Designer.cs">
+      <DependentUpon>201601210411126_FundingRequests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601210441196_AddedProgramToFR.cs" />
+    <Compile Include="Migrations\201601210441196_AddedProgramToFR.Designer.cs">
+      <DependentUpon>201601210441196_AddedProgramToFR.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -325,6 +334,7 @@
     <Compile Include="Models\ClientPortalContext.cs" />
     <Compile Include="Models\CustomUser.cs" />
     <Compile Include="Models\FormModels.cs" />
+    <Compile Include="Models\FundingRequest.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\Repositories\FormRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -410,6 +420,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201601210345484_Initial.resx">
       <DependentUpon>201601210345484_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601210411126_FundingRequests.resx">
+      <DependentUpon>201601210411126_FundingRequests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601210441196_AddedProgramToFR.resx">
+      <DependentUpon>201601210441196_AddedProgramToFR.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
