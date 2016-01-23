@@ -4,10 +4,7 @@
 <fieldset>
 <!-- {{action doSomething target="controllers.child"}} -->
 	<legend>Section Program to apply for</legend>
-	{{view "select"
-       content=controllers.fundingrequest.programs
-       optionValuePath="content.id"
-       optionLabelPath="content.programName"}}	
+	
 </fieldset>
 <button id="btnStartGnc" {{action  'testing'}}>Apply for Grant or Contribution</button>
 	

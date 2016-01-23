@@ -104,6 +104,12 @@ namespace ClientPortal.CRM
                 creds.UserName.UserName = serverCreds.UserName;
                 creds.UserName.Password = serverCreds.Password;
 
+                // Connect to the CRM web service using a connection string.
+                 //CrmServiceClient conn = new Xrm.Tooling.Connector.CrmServiceClient(connectionString);
+
+                // Cast the proxy client to the IOrganizationService interface.
+                //var _orgService = (IOrganizationService)conn.OrganizationWebProxyClient != null ? (IOrganizationService)conn.OrganizationWebProxyClient : (IOrganizationService)conn.OrganizationServiceProxy;
+
                 // Connect to the Organization service. 
                 // The using statement assures that the service proxy will be properly disposed.
                 var ouri = new Uri("http://myclerical/GnC/XRMServices/2011/Organization.svc");
@@ -201,19 +207,19 @@ namespace ClientPortal.CRM
 
         public List<FormField> getFormFields(string formName)
         {
-            RetrieveEntityRequest retrieveFormEntityRequest = new RetrieveEntityRequest
-            {
-                EntityFilters = EntityFilters.Attributes,
-                LogicalName = formName
-            };
+            //RetrieveEntityRequest retrieveFormEntityRequest = new RetrieveEntityRequest
+            //{
+            //    EntityFilters = EntityFilters.Attributes,
+            //    LogicalName = formName
+            //};
            
-            RetrieveEntityResponse retrieveFormEntityResponse = (RetrieveEntityResponse)_service.Execute(retrieveFormEntityRequest);
+            //RetrieveEntityResponse retrieveFormEntityResponse = (RetrieveEntityResponse)_service.Execute(retrieveFormEntityRequest);
 
             // string entityname = retrieveBankAccountEntityResponse.EntityMetadata.ManyToManyRelationships[0].IntersectEntityName;
             //var test1 = new List<string>();
             List<string> test1 = new List<string>();
-            var test = retrieveFormEntityResponse.EntityMetadata.Attributes.ToArray();
-            test.ToList().ForEach(i => test1.Add(i.LogicalName.ToString()));
+            //var test = retrieveFormEntityResponse.EntityMetadata.Attributes.ToArray();
+            //test.ToList().ForEach(i => test1.Add(i.LogicalName.ToString()));
             QueryExpression qe = new QueryExpression("systemform");
             qe.Criteria.AddCondition("type", ConditionOperator.Equal, 2); //main form
             qe.Criteria.AddCondition("objecttypecode", ConditionOperator.Equal, "contact");
@@ -261,60 +267,19 @@ namespace ClientPortal.CRM
            // return frmXml;
         }
 
-        /// <summary>
-        /// Creates any entity records that this sample requires.
-        /// </summary>
-        //public void CreateRequiredRecords()
-        //{
-        //    // Create a second user that we will reference in our sample code.
-        //    Guid userId = SystemUserProvider.RetrieveSalesManager(_serviceProxy);
+        public List<Entity> accounts()
+        {
+            var test = new List<string>();
+            QueryExpression qe = new QueryExpression("account");
+            qe.Criteria.AddCondition("statuscode", ConditionOperator.Equal, 1); //main form
+            qe.ColumnSet.AddColumn("name");
+            var result = _service.RetrieveMultiple(qe).Entities.ToList();
+            return result;
+        }
 
-        //    // Modify email address of user for sample.
-        //    SystemUser systemUser = new SystemUser
-        //    {
-        //        Id = userId,
-        //        InternalEMailAddress = "someone@example.com"
-        //    };
+    
 
-        //    _service.Update(systemUser);
-        //}
 
-        /// <summary>
-        /// Deletes any entity records that were created for this sample.
-        /// <param name="prompt">Indicates whether to prompt the user 
-        /// to delete the records created in this sample.</param>
-        /// </summary>
-        //public void DeleteRequiredRecords(bool prompt)
-        //{
-        //    // The system user named "Kevin Cook" that was created by this sample will
-        //    // continue to exist on your system because system users cannot be deleted
-        //    // in Microsoft Dynamics CRM.  They can only be enabled or disabled.
-
-        //    bool deleteRecords = true;
-
-        //    if (prompt)
-        //    {
-        //        Console.WriteLine("\nDo you want these entity records deleted? (y/n) [y]: ");
-        //        String answer = Console.ReadLine();
-
-        //        deleteRecords = (answer.StartsWith("y") || answer.StartsWith("Y") || answer == String.Empty);
-        //    }
-
-        //    if (deleteRecords)
-        //    {
-        //        _service.Delete(Incident.EntityLogicalName, _incidentId);
-        //        _service.Delete(Opportunity.EntityLogicalName, _opportunityId);
-        //        _service.Delete(QuoteDetail.EntityLogicalName, _quoteDetailId);
-        //        _service.Delete(ProductPriceLevel.EntityLogicalName, _productPriceLevelId);
-        //        _service.Delete(Product.EntityLogicalName, _productId);
-        //        _service.Delete(Quote.EntityLogicalName, _quoteId);
-        //        _service.Delete(PriceLevel.EntityLogicalName, _priceLevelId);
-        //        _service.Delete(Annotation.EntityLogicalName, _annotationId);
-        //        _service.Delete(Contact.EntityLogicalName, _contactId);
-        //        _service.Delete(Account.EntityLogicalName, _accountId);
-        //        Console.WriteLine("Entity record(s) have been deleted.");
-        //    }
-        //}
 
 
     }
