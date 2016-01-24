@@ -22,6 +22,7 @@ using System.IO;
 using System.Xml.Linq;
 using ClientPortal.Models;
 
+
 namespace ClientPortal.CRM
 {
     public static class EnumHelper
@@ -58,6 +59,14 @@ namespace ClientPortal.CRM
         public string Telephone1;
         public string EmailAddress1;
         public Guid Id;
+    }
+    public struct WebInitiative
+    {
+        public Guid id;
+        public string name;
+        public string webdescription;
+        public DateTime? StartDate;
+        public DateTime? EndDate;
     }
 
     public struct Account
@@ -275,6 +284,29 @@ namespace ClientPortal.CRM
             qe.ColumnSet.AddColumn("name");
             var result = _service.RetrieveMultiple(qe).Entities.ToList();
             return result;
+        }
+
+        public  List<WebInitiative> webinitiatives()
+        {
+            var wis = new List<WebInitiative>();
+            QueryExpression qe = new QueryExpression("fp_webinitiative");
+            qe.Criteria.AddCondition("statuscode", ConditionOperator.Equal, 1);
+            qe.ColumnSet.AddColumns("fp_name", "fp_startdate", "fp_enddate", "fp_webdescription");
+            var result = _service.RetrieveMultiple(qe).Entities.ToList();
+            foreach(var r in result)
+            {
+                WebInitiative wi = new WebInitiative
+                {
+                    id = r.Id,
+                    name = r.Attributes["fp_name"].ToString(),
+                    webdescription = r.Attributes["fp_webdescription"].ToString(),
+                    StartDate = (DateTime)r.Attributes["fp_startdate"],
+                    EndDate = (DateTime)r.Attributes["fp_enddate"]
+                };
+                wis.Add(wi);
+            }
+            return wis;
+
         }
 
     

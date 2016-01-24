@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import User from '../models/user'
+import session from "ember-simple-auth/services/session";
 
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),

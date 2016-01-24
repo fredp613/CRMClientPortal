@@ -15,6 +15,7 @@ using ClientPortal.CRM;
 using System.Collections;
 using Microsoft.Xrm.Sdk;
 
+
 namespace ClientPortal.Controllers
 {
     public class HomeController : Controller
@@ -41,12 +42,15 @@ namespace ClientPortal.Controllers
         {
             _crmContext = new CrmConnector();
         }
-        public IEnumerable<Entity> getAccounts()
+        [System.Web.Http.Route("api/webinitiatives")]
+        [System.Web.Http.HttpGet]
+        public /**IEnumerable<WebInitiative>**/ dynamic webinitiatives()
         {
             var test = _crmContext.getFormFields("contact");
             var test1 = _crmContext.accounts();
-            return test1;
-
+            var wis = _crmContext.webinitiatives();
+           // return wis;
+            return new { webinitiatives = wis };
 
         }
     }

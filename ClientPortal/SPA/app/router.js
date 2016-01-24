@@ -20,6 +20,7 @@ Router.map(function() {
   this.route('organizations');
   this.route('fundingrequests');
   this.route('addresses');
+  this.route('webinitiative');
 });
 
 export default Router;
